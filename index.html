@@ -7,13 +7,71 @@
 
   <title>Logic Rewards</title>
 
-  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
-  <link rel="stylesheet" href="style.css"/>
-
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-dark.min.css"/>
 </head>
 <body>
   <h1>Ежедневные награды<small>Генерация конфигурации</small></h1>
 
+  <section class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <form>
+          <fieldset>
+            <legend>Настроечки</legend>
+            <div class="row responsive-label">
+              <div class="col-sm-12 col-md-2">
+                <label for="monthSelect">Месяц</label>
+              </div>
+              <div class="col-sm-12 col-md">
+                <select id="monthSelect">
+                  <option>Январь</option>
+                  <option>Февраль</option>
+                  <option>Март</option>
+                  <option>Апрель</option>
+                  <option>Май</option>
+                  <option>Июнь</option>
+                  <option>Июль</option>
+                  <option>Август</option>
+                  <option>Сентябрь</option>
+                  <option>Октябрь</option>
+                  <option>Ноябрь</option>
+                  <option>Декабрь</option>
+                </select>
+              </div>
+            </div>
+            <div class="row responsive-label">
+              <div class="col-sm-12 col-md-2">
+                <label for="inputJson">Списки наград</label>
+              </div>
+              <div class="col-sm-12 col-md">
+                <textarea id="inputJson" rows="20" cols="80" style="font-family: monospace; font-size: 12px;"></textarea>
+              </div>
+            </div>
+          </fieldset>
+          <div class="row responsive-label">
+            <div class="col-sm-12 col-md-2">
+              <input id="generateJson" type="button" value="Сделать JSON" style="border-style: solid; border-width: 1px; border-color: white;"/>
+            </div>
+            <div class="col-sm-12 col-md">
+              <p id="generationError" style="visibility: hidden;">Не могу :(</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 
+  <section class="container">
+    <div class="row responsive-label">
+      <div class="col-sm-12 col-md-2">
+        <h2>JSON`чик</h2>
+      </div>
+      <div class="col-sm-12 col-md">
+        <input id="copyJson" type="button" value="Копировать"/>
+      </div>
+    </div>
+    <pre id="outputJson" style="font-family: monospace; font-size: 12px;"></pre>
+  </section>
+
+  <script src="/public/awards/script.js"></script>
 </body>
