@@ -17,7 +17,7 @@
 [
   {
     "type": "COMMAND",
-    "awards": [
+    "rewards": [
       {
         "description": "100 Logics",
         "special": true,
@@ -38,7 +38,7 @@
   },
   {
     "type": "CURRENCY",
-    "awards": [
+    "rewards": [
       {
         "description": "oxygen_dailyrewards.description.currency",
         "amount": 30,
@@ -57,7 +57,7 @@
   },
   {
     "type": "ITEM",
-    "awards": [
+    "rewards": [
       {
         "description": "oxygen_dailyrewards.description.item",
         "amount": 5,
