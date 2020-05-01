@@ -35,31 +35,32 @@ function onGenerateJsonButtonClick() {
 
 
 function parseInputJson() {
-    return JSON.parse(inputJson.value);
-}
-
-function generateRewardsConfig(rewardsList, month) {
-    rewardsConfig = []
-
-    // validate json
+    let rewardsList = JSON.parse(inputJson.value);
 
     if (rewardsList.length === 0) {
         throw 'No types defined';
     }
 
+    var typeIndex;
+    for (typeIndex = 0; typeIndex < rewardsList.length; typeIndex++) {
+        if (!rewardsList[typeIndex].type) {
+            throw "Missing 'type' property of type with index " + typeIndex;
+        }
+        if (!rewardsList[typeIndex].rewards) {
+            throw "Missing 'rewards' property of type with index " + typeIndex;
+        }
+        if (rewardsList[typeIndex].rewards.length === 0) {
+            throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined'
+        }
+    }
+
+    return rewardsList;
+}
+
+function generateRewardsConfig(rewardsList, month) {
+    rewardsConfig = []
+
     let typeIndex = 0;
-
-    if (!rewardsList[typeIndex].type) {
-        throw "Missing 'type' property of type with index " + typeIndex;
-    }
-
-    if (!rewardsList[typeIndex].rewards) {
-        throw "Missing 'rewards' property of type " + rewardsList[typeIndex].type
-    }
-
-    if (!rewardsList[typeIndex].rewards.length) {
-        throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined'
-    }
 
     rewards = [];
 
