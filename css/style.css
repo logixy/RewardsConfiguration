@@ -1,0 +1,20 @@
+textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+input[type=button] {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+pre {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+#generationError {
+  visibility: hidden;
+}
