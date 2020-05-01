@@ -18,49 +18,47 @@
 [
   {
     "type": "COMMAND",
+    "description": "150 Logics",
     "rewards": [
       {
-        "description": "100 Logics",
         "special": true,
         "tooltip": "Money: 100 Logics",
         "icon": "money.png",
         "commands": "/adminpay @p 100",
-        "weight": 0.7
+        "weight": "l"
       },
       {
-        "description": "150 Logics",
         "special": true,
         "tooltip": "Money: 150 Logics",
         "icon": "money.png",
         "commands": "/adminpay @p 150",
-        "weight": 0.3
+        "weight": "m"
       }
     ]
   },
   {
     "type": "CURRENCY",
+    "description": "oxygen_dailyrewards.description.currency",
     "rewards": [
       {
-        "description": "oxygen_dailyrewards.description.currency",
         "amount": 30,
         "special": false,
         "currency_index": 0,
-        "weight": 0.5
+        "weight": "h"
       },
       {
-        "description": "oxygen_dailyrewards.description.currency",
         "amount": 10,
         "special": false,
         "currency_index": 0,
-        "weight": 0.7
+        "weight": "m"
       }
     ]
   },
   {
     "type": "ITEM",
+    "description": "oxygen_dailyrewards.description.item",
     "rewards": [
       {
-        "description": "oxygen_dailyrewards.description.item",
         "amount": 5,
         "special": false,
         "itemstack": {
@@ -69,10 +67,9 @@
           "itemstack_nbt": "",
           "capabilities_nbt": ""
         },
-        "weight": 0.99
+        "weight": "m"
       },
       {
-        "description": "oxygen_dailyrewards.description.item",
         "amount": 15,
         "special": true,
         "itemstack": {
@@ -81,7 +78,7 @@
           "itemstack_nbt": "",
           "capabilities_nbt": ""
         },
-        "weight": 1
+        "weight": "l"
       }
     ]
   }

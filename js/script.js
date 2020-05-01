@@ -41,49 +41,78 @@ function parseInputJson() {
 function generateRewardsConfig(rewardsList, month) {
     rewardsConfig = []
 
-    for (let day = 1; day <= DAYS[month]; day++) {
-        if (rewardsList.length === 0) {
-            throw 'No types defined';
-        }
+    // validate json
 
-        let typeIndex = Math.floor(Math.random() * rewardsList.length);
+    if (rewardsList.length === 0) {
+        throw 'No types defined';
+    }
 
-        if (!rewardsList[typeIndex].type) {
-            throw "Missing 'type' property of type with index " + typeIndex;
-        }
+    let typeIndex = 0;
 
-        if (!rewardsList[typeIndex].rewards) {
-            throw "Missing 'rewards' property of type " + rewardsList[typeIndex].type
-        }
+    if (!rewardsList[typeIndex].type) {
+        throw "Missing 'type' property of type with index " + typeIndex;
+    }
 
-        if (!rewardsList[typeIndex].rewards.length) {
-            throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined'
-        }
+    if (!rewardsList[typeIndex].rewards) {
+        throw "Missing 'rewards' property of type " + rewardsList[typeIndex].type
+    }
 
-        let total = rewardsList[typeIndex].rewards.length;
-        let rewardIndex = Math.floor(Math.random() * total);
+    if (!rewardsList[typeIndex].rewards.length) {
+        throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined'
+    }
 
+    rewards = [];
+
+    for (let i = 0; i < rewardsList.length; i++) {
         let header = {
-            day: day,
-            type: rewardsList[typeIndex].type
+            day: 0,
+            type: rewardsList[i].type
         };
 
-        if (rewardsList[typeIndex].description) {
-            header.description = rewardsList[typeIndex].description;
+        if (rewardsList[i].description) {
+            header.description = rewardsList[i].description;
         }
 
-        let content = rewardsList[typeIndex].rewards[rewardIndex];
+        let content = [];
+        for (let j = 0; j < rewardsList[i].rewards.length; j++) {
+            content = rewardsList[i].rewards[j];
+            rewardsList[i].rewards[j] = Object.assign(header, content);
+        }
 
-        let reward = Object.assign(header, content);
+        rewards = rewards.concat(rewardsList[i].rewards);
+    }
 
-        if (reward.weight) {
-            delete reward.weight;
+    var filteredRewardsL = rewards.filter(
+        reward => reward.weight === "l"
+    );
+
+    var filteredRewardsLM = rewards.filter(
+        reward => (reward.weight === "l" || reward.weight === "m")
+    );
+
+    var filteredRewardsMH = rewards.filter(
+        reward => (reward.weight === "m" || reward.weight === "h")
+    );
+
+    for (i = 1; i <= DAYS[month]; i++) {
+        let reward = {};
+
+        if (i < 8) {
+            reward = getRandomItemFromArray(filteredRewardsL)
+        } else if (i > 23) {
+            reward = getRandomItemFromArray(filteredRewardsMH)
         } else {
-            throw "Missing 'weight' property of reward with type " + rewardsList[typeIndex].type + " and index " + rewardIndex;
+            reward = getRandomItemFromArray(filteredRewardsLM)
         }
 
+        reward.day = i;
+        delete reward.weight;
         rewardsConfig.push(reward);
     }
+}
+
+function getRandomItemFromArray(array) {
+    return array[Math.floor(Math.random() * array.length)];
 }
 
 
