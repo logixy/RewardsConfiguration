@@ -108,7 +108,8 @@ function generateRewardsConfig(rewardsList, month) {
 
         reward.day = i;
         delete reward.weight;
-        rewardsConfig.push(reward);
+        //Копируем объект в общий массив
+		rewardsConfig.push(Object.assign({}, reward));
     }
 }
 
