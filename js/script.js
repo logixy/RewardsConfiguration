@@ -1,66 +1,110 @@
-monthSelect = document.getElementById('monthSelect');
+let monthSelect = document.getElementById('monthSelect');
 monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
 
-inputJson = document.getElementById('inputJson');
-generateJson = document.getElementById('generateJson');
-copyJson = document.getElementById('copyJson');
-outputJson = document.getElementById('outputJson');
-generationError = document.getElementById('generationError');
+let inputJsonTextArea = document.getElementById('inputJson');
 
-let requestURL = 'https://www.mymusichere.me/public/awards/awards.json';
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+let generateJsonButton = document.getElementById('generateJson');
+generateJsonButton.addEventListener("click", onGenerateJsonButtonClick);
 
-awards = []
-inputJson.value = '[]'
+let outputJson = document.getElementById('outputJson');
 
-request.onload = function() {
-    awards = request.response;
-    inputJson.value = JSON.stringify(awards, null, 2)
-}
+let generationError = document.getElementById('generationError');
 
-days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-generateJson.addEventListener("click", onGenerateJsonButtonClick);
+const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-awardsConfig = []
+
+var rewardsConfig = [];
+outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
 
 function onGenerateJsonButtonClick() {
     try {
-        input = JSON.parse(inputJson.value)
-        generationError.style.visibility = 'hidden'
+        let rewardsList = parseInputJson();
+
+        let monthIndex = monthSelect.selectedIndex;
+        generateRewardsConfig(rewardsList, monthIndex);
+
+        outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
+
+        hideError();
     } catch (error) {
-        generationError.style.visibility = 'visible'
+        showError(error);
     }
 
-    for (day = 1; day <= days[monthSelect.selectedIndex]; day++) {
-        type = Math.floor(Math.random() * 3)
-
-        total = input[type].awards.length
-        awardIndex = Math.floor(Math.random() * total)
-
-        header = {
-            day: day,
-            type: input[type].type,
-        }
-        content = input[type].awards[awardIndex]
-        award = Object.assign(header, content)
-        delete award.weight
-        awardsConfig.push(award)
-    }
-
-    outputJson.innerHTML = JSON.stringify(awardsConfig, null, 2)
 };
 
-copyJson.addEventListener("click", copyJsonToClipboard)
 
-function copyJsonToClipboard() {
-    input = document.createElement('textarea')
+function parseInputJson() {
+    return JSON.parse(inputJson.value);
+}
+
+function generateRewardsConfig(rewardsList, month) {
+    rewardsConfig = []
+
+    for (let day = 1; day <= DAYS[month]; day++) {
+        if (rewardsList.length === 0) {
+            throw 'No types defined';
+        }
+
+        let typeIndex = Math.floor(Math.random() * rewardsList.length);
+
+        if (!rewardsList[typeIndex].type) {
+            throw "Missing 'type' property of type with index " + typeIndex;
+        }
+
+        if (!rewardsList[typeIndex].rewards) {
+            throw "Missing 'rewards' property of type " + rewardsList[typeIndex].type
+        }
+
+        if (!rewardsList[typeIndex].rewards.length) {
+            throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined'
+        }
+
+        let total = rewardsList[typeIndex].rewards.length;
+        let rewardIndex = Math.floor(Math.random() * total);
+
+        let header = {
+            day: day,
+            type: rewardsList[typeIndex].type
+        };
+
+        if (rewardsList[typeIndex].description) {
+            header.description = rewardsList[typeIndex].description;
+        }
+
+        let content = rewardsList[typeIndex].rewards[rewardIndex];
+
+        let reward = Object.assign(header, content);
+
+        if (reward.weight) {
+            delete reward.weight;
+        } else {
+            throw "Missing 'weight' property of reward with type " + rewardsList[typeIndex].type + " and index " + rewardIndex;
+        }
+
+        rewardsConfig.push(reward);
+    }
+}
+
+
+const copyJsonButton = document.getElementById('copyJson');
+
+copyJson.addEventListener("click", function copyJsonToClipboard() {
+    let input = document.createElement('textarea');
     document.body.appendChild(input);
-    input.value = JSON.stringify(awardsConfig, null, 2);
+    input.value = JSON.stringify(rewardsConfig, null, 2);
     input.select();
     document.execCommand('copy');
     document.body.removeChild(input);
-}
+    delete input;
+})
+
+
+function showError(error) {
+    generationError.style.visibility = 'visible';
+    console.error(error);
+};
+
+function hideError() {
+    generationError.style.visibility = 'hidden';
+};
