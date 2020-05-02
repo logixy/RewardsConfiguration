@@ -35,7 +35,7 @@ function onGenerateJsonButtonClick() {
 
 
 function parseInputJson() {
-    let rewardsList = JSON.parse(inputJson.value);
+    let rewardsList = Object.assign({}, JSON.parse(inputJson.value));
 
     if (rewardsList.length === 0) {
         throw 'No types defined';
@@ -77,7 +77,7 @@ function generateRewardsConfig(rewardsList, month) {
         let content = [];
         for (let j = 0; j < rewardsList[i].rewards.length; j++) {
             content = rewardsList[i].rewards[j];
-            rewardsList[i].rewards[j] = Object.assign(header, content);
+            rewardsList[i].rewards[j] = Object.assign(Object.assign({}, header), Object.assign({}, content));
         }
 
         rewards = rewards.concat(rewardsList[i].rewards);
