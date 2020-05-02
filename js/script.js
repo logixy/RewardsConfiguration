@@ -35,8 +35,7 @@ function onGenerateJsonButtonClick() {
 
 
 function parseInputJson() {
-    let rewardsList = JSON.parse(inputJson.value);
-
+    let rewardsList = Object.assign({}, JSON.parse(inputJson.value));
     if (rewardsList.length === 0) {
         throw 'No types defined';
     }
@@ -58,13 +57,13 @@ function parseInputJson() {
 }
 
 function generateRewardsConfig(rewardsList, month) {
-    rewardsConfig = []
+    rewardsConfig = [];
 
     let typeIndex = 0;
 
     rewards = [];
 
-    for (let i = 0; i < rewardsList.length; i++) {
+    for (let i = 0; i < 3; i++) {
         let header = {
             day: 0,
             type: rewardsList[i].type
@@ -77,7 +76,7 @@ function generateRewardsConfig(rewardsList, month) {
         let content = [];
         for (let j = 0; j < rewardsList[i].rewards.length; j++) {
             content = rewardsList[i].rewards[j];
-            rewardsList[i].rewards[j] = Object.assign(header, content);
+            rewardsList[i].rewards[j] = Object.assign(Object.assign({}, header), Object.assign({}, content));
         }
 
         rewards = rewards.concat(rewardsList[i].rewards);
@@ -105,11 +104,11 @@ function generateRewardsConfig(rewardsList, month) {
         } else {
             reward = getRandomItemFromArray(filteredRewardsLM)
         }
-
+	reward = Object.assign({}, reward);
         reward.day = i;
         delete reward.weight;
-        //Копируем объект в общий массив
-		rewardsConfig.push(Object.assign({}, reward));
+	//Копируем объект в общий массив
+	rewardsConfig.push(reward);
     }
 }
 
