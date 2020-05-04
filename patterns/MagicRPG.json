@@ -1,0 +1,621 @@
+[
+  {
+    "type": "COMMAND",
+    "rewards": [
+      {
+        "description": "100 Logics",
+        "special": true,
+        "tooltip": "Money: 100 Logics",
+        "icon": "money.png",
+        "commands": "/adminpay @p 100",
+        "weight": "l"
+      },
+      {
+        "description": "150 Logics",
+        "special": true,
+        "tooltip": "Money: 150 Logics",
+        "icon": "money.png",
+        "commands": "/adminpay @p 150",
+        "weight": "l"
+      },
+      {
+        "description": "180 Logics",
+        "special": true,
+        "tooltip": "Money: 180 Logics",
+        "icon": "money.png",
+        "commands": "/adminpay @p 180",
+        "weight": "l"
+      },
+      {
+        "description": "150 Logics",
+        "special": true,
+        "tooltip": "Money: 150 Logics",
+        "icon": "money.png",
+        "commands": "/adminpay @p 150",
+        "weight": "m"
+      },
+      {
+        "description": "5000 Logics",
+        "special": true,
+        "tooltip": "Money: 5000 Logics",
+        "icon": "money.png",
+        "commands": "/adminpay @p 5000",
+        "weight": "h"
+      },
+      {
+        "description": "300 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 300",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 300",
+        "weight": "l"
+      },
+      {
+        "description": "150 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 150",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 150",
+        "weight": "l"
+      },
+      {
+        "description": "190 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 190",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 190",
+        "weight": "l"
+      },
+      {
+        "description": "500 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 500",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 500",
+        "weight": "m"
+      },
+      {
+        "description": "550 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 550",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 550",
+        "weight": "m"
+      },
+      {
+        "description": "600 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 600",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 600",
+        "weight": "m"
+      },
+      {
+        "description": "700 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 700",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 700",
+        "weight": "h"
+      },
+      {
+        "description": "900 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 900",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 900",
+        "weight": "h"
+      },
+      {
+        "description": "1000 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 1000",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 1000",
+        "weight": "h"
+      },
+      {
+        "description": "Group VIP 2 days",
+        "special": true,
+      	"icon": "vip.png",
+      	"tooltip": "Group: VIP\nExp: 2 days",
+      	"commands": "/lp user @p parent addtemp vip 2d server=magicrpg",
+        "weight": "m"
+     },
+      {
+        "description": "Group Premium 2 days",
+        "special": true,
+      	"icon": "vip.png",
+      	"tooltip": "Group: Premium\nExp: 2 days",
+      	"commands": "/lp user @p parent addtemp premium 2d server=magicrpg",
+        "weight": "h"
+     },
+      {
+        "description": "Group Platinum 2 days",
+        "special": true,
+      	"icon": "vip.png",
+      	"tooltip": "Group: Platinum\nExp: 2 days",
+      	"commands": "/lp user @p parent addtemp platinum 2d server=magicrpg",
+        "weight": "h"
+     },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 80",
+      	"commands": "/xp @p 80",
+        "weight": "l"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 90",
+      	"commands": "/xp @p 90",
+        "weight": "l"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 150",
+      	"commands": "/xp @p 150",
+        "weight": "m"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 250",
+      	"commands": "/xp @p 250",
+        "weight": "m"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 500",
+      	"commands": "/xp @p 500",
+        "weight": "h"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 650",
+      	"commands": "/xp @p 650",
+        "weight": "h"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 1000",
+      	"commands": "/xp @p 1000",
+        "weight": "h"
+      }
+    ]
+  },
+  {
+    "type": "CURRENCY",
+    "description": "oxygen_dailyrewards.description.currency",
+    "rewards": [
+      {
+        "amount": 12,
+        "special": false,
+        "currency_index": 0,
+        "weight": "l"
+      },
+      {
+        "amount": 14,
+        "special": false,
+        "currency_index": 0,
+        "weight": "l"
+      },
+      {
+        "amount": 16,
+        "special": false,
+        "currency_index": 0,
+        "weight": "l"
+      },
+      {
+        "amount": 25,
+        "special": false,
+        "currency_index": 0,
+        "weight": "m"
+      },
+      {
+        "amount": 40,
+        "special": false,
+        "currency_index": 0,
+        "weight": "h"
+      },
+      {
+        "amount": 50,
+        "special": false,
+        "currency_index": 0,
+        "weight": "h"
+      }
+    ]
+  },
+  {
+    "type": "ITEM",
+    "description": "oxygen_dailyrewards.description.item",
+    "rewards": [
+      {
+        "amount": 1,
+        "special": false,
+        "itemstack": {
+          "registry_name": "chickenchunks:chunk_loader",
+          "damage": 1,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "l"
+      },
+      {
+        "amount": 2,
+        "special": false,
+        "itemstack": {
+          "registry_name": "chickenchunks:chunk_loader",
+          "damage": 1,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 3,
+        "special": false,
+        "itemstack": {
+          "registry_name": "chickenchunks:chunk_loader",
+          "damage": 1,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 5,
+        "special": false,
+        "itemstack": {
+          "registry_name": "chickenchunks:chunk_loader",
+          "damage": 1,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:te",
+          "damage": 8,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:te",
+          "damage": 72,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:batpack",
+          "damage": 26,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "advanced_solar_panels:machines",
+          "damage": 2,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 2,
+        "special": true,
+        "itemstack": {
+          "registry_name": "advanced_solar_panels:machines",
+          "damage": 2,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "advanced_solar_panels:machines",
+          "damage": 3,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "advanced_solar_panels:machines",
+          "damage": 4,
+      	  "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 5,
+        "special": true,
+        "itemstack": {
+          "registry_name": "advanced_solar_panels:machines",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ironchest:iron_shulker_box_light_blue",
+          "damage": 5,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 3,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ironchest:iron_shulker_box_light_blue",
+          "damage": 4,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:lappack",
+          "damage": 26,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 2,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 5,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 10,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 5,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 10,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 25,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 64,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:luck_of_the_sea\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:alchemist\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:atkdmg_ranged\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:treasure_sands\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:growth\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:ender_manipulator\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:xp+\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:generic_protection\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:obsidian_skin\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:health\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "h"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "improvableskills:scroll_normal",
+          "damage": 0,
+          "itemstack_nbt": "{Skill:\"improvableskills:enchanter\"}",
+          "capabilities_nbt": "{\"astralsorcery:cap_item_amulet_holder\":{AS_Amulet_HolderLeast:-7354777458086286822L,AS_Amulet_HolderMost:-5220982244158205466L},\"customnpcs:itemscripteddata\":{}}"
+        },
+        "weight": "h"
+      }
+    ]
+  }
+]
