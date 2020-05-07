@@ -104,11 +104,11 @@ function generateRewardsConfig(rewardsList, month) {
         } else {
             reward = getRandomItemFromArray(filteredRewardsLM)
         }
-	reward = Object.assign({}, reward);
+
+        reward = Object.assign({}, reward);
         reward.day = i;
         delete reward.weight;
-	//Копируем объект в общий массив
-	rewardsConfig.push(reward);
+        rewardsConfig.push(reward);
     }
 }
 
@@ -117,9 +117,9 @@ function getRandomItemFromArray(array) {
 }
 
 
-const copyJsonButton = document.getElementById('copyJson');
+document.getElementById('copyJson').onclick = copyJsonToClipboard;
 
-copyJson.addEventListener("click", function copyJsonToClipboard() {
+function copyJsonToClipboard() {
     let input = document.createElement('textarea');
     document.body.appendChild(input);
     input.value = JSON.stringify(rewardsConfig, null, 2);
@@ -127,7 +127,7 @@ copyJson.addEventListener("click", function copyJsonToClipboard() {
     document.execCommand('copy');
     document.body.removeChild(input);
     delete input;
-})
+}
 
 
 function showError(error) {
