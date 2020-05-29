@@ -1,0 +1,444 @@
+[
+  {
+    "type": "COMMAND",
+    "rewards": [
+      {
+        "description": "300 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 300",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 300",
+        "weight": "l"
+      },
+      {
+        "description": "150 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 150",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 150",
+        "weight": "l"
+      },
+      {
+        "description": "190 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 190",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 190",
+        "weight": "l"
+      },
+      {
+        "description": "500 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 500",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 500",
+        "weight": "m"
+      },
+      {
+        "description": "550 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 550",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 550",
+        "weight": "m"
+      },
+      {
+        "description": "600 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 600",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 600",
+        "weight": "m"
+      },
+      {
+        "description": "700 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 700",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 700",
+        "weight": "h"
+      },
+      {
+        "description": "900 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 900",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 900",
+        "weight": "h"
+      },
+      {
+        "description": "1000 Claim blocks",
+        "special": true,
+      	"tooltip": "Count of claim blocks: 1000",
+      	"icon": "claimblocks.png",
+      	"commands": "/adjustbonusclaimblocks @p 1000",
+        "weight": "h"
+      },
+      {
+        "description": "Group VIP 2 days",
+        "special": true,
+      	"icon": "vip.png",
+      	"tooltip": "Group: VIP\nExp: 2 days",
+      	"commands": "/lp user @p parent addtemp vip 2d server=classictech",
+        "weight": "m"
+     },
+      {
+        "description": "Group Premium 2 days",
+        "special": true,
+      	"icon": "vip.png",
+      	"tooltip": "Group: Premium\nExp: 2 days",
+      	"commands": "/lp user @p parent addtemp premium 2d server=classictech",
+        "weight": "h"
+     },
+      {
+        "description": "Group Platinum 2 days",
+        "special": true,
+      	"icon": "vip.png",
+      	"tooltip": "Group: Platinum\nExp: 2 days",
+      	"commands": "/lp user @p parent addtemp platinum 2d server=classictech",
+        "weight": "h"
+     }
+    ]
+  },
+  {
+    "type": "CURRENCY",
+    "description": "oxygen_dailyrewards.description.currency",
+    "rewards": []
+  },
+  {
+    "type": "ITEM",
+    "description": "oxygen_dailyrewards.description.item",
+    "rewards": [
+      {
+        "amount": 3,
+        "special": false,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 451,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "l"
+      },
+      {
+        "amount": 5,
+        "special": false,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 451,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 32,
+        "special": false,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 451,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "h"
+      },
+      {
+        "amount": 2,
+        "special": false,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 452,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "m"
+      },
+      {
+        "amount": 15,
+        "special": false,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 452,
+          "itemstack_nbt": "",
+          "capabilities_nbt": ""
+        },
+        "weight": "h"
+      },
+      {
+        "amount": 25,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:blockmetal",
+          "damage": 2,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 64,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:blockmetal",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 5,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemheatvent",
+          "damage": 3,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 10,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 256,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 2,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 5,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 10,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:nether_star",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 5,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 10,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 25,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 64,
+        "special": true,
+        "itemstack": {
+          "registry_name": "minecraft:diamond",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 10,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 157,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 20,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 157,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 32,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 157,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 3,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itembatcrystal",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 2,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itembatcrystal",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 16,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 450,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 25,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 450,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 64,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemmisc",
+          "damage": 450,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 16,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemscrapbox",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 32,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemscrapbox",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "m"
+      },
+      {
+        "amount": 64,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:itemscrapbox",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      },
+      {
+        "amount": 32,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:blockmetal",
+          "damage": 1,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 16,
+        "special": true,
+        "itemstack": {
+          "registry_name": "ic2:blockmetal",
+          "damage": 3,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "l"
+      },
+      {
+        "amount": 1,
+        "special": true,
+        "itemstack": {
+          "registry_name": "logisticspipes:hud_glasses",
+          "damage": 0,
+	        "itemstack_nbt": "",
+          "capabilities_nbt": ""
+	      },
+        "weight": "h"
+      }
+    ]
+  }
+]
