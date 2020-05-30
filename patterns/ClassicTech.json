@@ -97,7 +97,63 @@
       	"tooltip": "Group: Platinum\nExp: 2 days",
       	"commands": "/lp user @p parent addtemp platinum 2d server=classictech",
         "weight": "h"
-     }
+     },
+     {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 80",
+      	"commands": "/xp @p 80",
+        "weight": "l"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 90",
+      	"commands": "/xp @p 90",
+        "weight": "l"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 150",
+      	"commands": "/xp @p 150",
+        "weight": "m"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 250",
+      	"commands": "/xp @p 250",
+        "weight": "m"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 500",
+      	"commands": "/xp @p 500",
+        "weight": "h"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 650",
+      	"commands": "/xp @p 650",
+        "weight": "h"
+      },
+      {
+        "description": "XP",
+        "special": true,
+      	"icon": "xp.png",
+      	"tooltip": "Expirience: 1000",
+      	"commands": "/xp @p 1000",
+        "weight": "h"
+      }
     ]
   },
   {
