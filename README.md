@@ -1,12 +1,14 @@
 # RewardsConfiguration
+
+[logicworlds.github.io/RewardsConfiguration](https://logicworlds.github.io/RewardsConfiguration/)
+
 Генератор конфигурации для
-[Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards)
+[Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards/).
 
-
-## Генерация конфигурации
+## Как использовать
 
 1. Выбрать месяц (по умолчанию - следующий)
-2. Вставить JSON со списком наград (пример см. ниже)
+2. Вставить JSON со списками наград
 3. Нажать "Сделать JSON"
 4. Нажать "Копировать", чтобы поместить сгенерированную конфигурацию в буфер обмена
 
