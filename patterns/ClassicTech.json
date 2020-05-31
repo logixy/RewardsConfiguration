@@ -224,7 +224,7 @@
         "amount": 25,
         "special": true,
         "itemstack": {
-          "registry_name": "ic2:blockmetal",
+          "registry_name": "minecraft:emerald",
           "damage": 2,
 	        "itemstack_nbt": "",
           "capabilities_nbt": ""
@@ -235,7 +235,7 @@
         "amount": 64,
         "special": true,
         "itemstack": {
-          "registry_name": "ic2:blockmetal",
+          "registry_name": "minecraft:emerald",
           "damage": 0,
 	        "itemstack_nbt": "",
           "capabilities_nbt": ""
@@ -466,19 +466,19 @@
         "amount": 32,
         "special": true,
         "itemstack": {
-          "registry_name": "ic2:blockmetal",
-          "damage": 1,
+          "registry_name": "minecraft:emerald",
+          "damage": 0,
 	        "itemstack_nbt": "",
           "capabilities_nbt": ""
 	      },
         "weight": "l"
       },
       {
-        "amount": 16,
+        "amount": 10,
         "special": true,
         "itemstack": {
-          "registry_name": "ic2:blockmetal",
-          "damage": 3,
+          "registry_name": "minecraft:emerald",
+          "damage": 0,
 	        "itemstack_nbt": "",
           "capabilities_nbt": ""
 	      },
