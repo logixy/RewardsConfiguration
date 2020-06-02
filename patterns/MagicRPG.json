@@ -288,7 +288,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "ic2:te",
           "damage": 8,
@@ -299,7 +299,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "ic2:te",
           "damage": 72,
@@ -321,7 +321,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "advanced_solar_panels:machines",
           "damage": 2,
@@ -332,7 +332,7 @@
       },
       {
         "amount": 2,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "advanced_solar_panels:machines",
           "damage": 2,
@@ -343,7 +343,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "advanced_solar_panels:machines",
           "damage": 3,
@@ -354,7 +354,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "advanced_solar_panels:machines",
           "damage": 4,
@@ -365,7 +365,7 @@
       },
       {
         "amount": 5,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "advanced_solar_panels:machines",
           "damage": 0,
@@ -376,7 +376,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "ironchest:iron_shulker_box_light_blue",
           "damage": 5,
@@ -387,7 +387,7 @@
       },
       {
         "amount": 3,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "ironchest:iron_shulker_box_light_blue",
           "damage": 4,
@@ -398,7 +398,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "ic2:lappack",
           "damage": 26,
@@ -409,7 +409,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -420,7 +420,7 @@
       },
       {
         "amount": 2,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -431,7 +431,7 @@
       },
       {
         "amount": 5,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -442,7 +442,7 @@
       },
       {
         "amount": 10,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -453,7 +453,7 @@
       },
       {
         "amount": 5,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
@@ -464,7 +464,7 @@
       },
       {
         "amount": 10,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
@@ -475,7 +475,7 @@
       },
       {
         "amount": 25,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
@@ -486,7 +486,7 @@
       },
       {
         "amount": 64,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,

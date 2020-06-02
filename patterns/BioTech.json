@@ -288,7 +288,7 @@
       },
       {
         "amount": 2,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "immersiveengineering:shader_bag",
           "damage": 0,
@@ -299,7 +299,7 @@
       },
       {
         "amount": 1,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "immersiveengineering:shader_bag",
           "damage": 0,
@@ -310,7 +310,7 @@
       },
       {
         "amount": 5,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "immersiveengineering:shader_bag",
           "damage": 0,
@@ -365,7 +365,7 @@
       },
       {
         "amount": 2,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -376,7 +376,7 @@
       },
       {
         "amount": 5,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -387,7 +387,7 @@
       },
       {
         "amount": 10,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:nether_star",
           "damage": 0,
@@ -398,7 +398,7 @@
       },
       {
         "amount": 5,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
@@ -409,7 +409,7 @@
       },
       {
         "amount": 10,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
@@ -420,7 +420,7 @@
       },
       {
         "amount": 25,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
@@ -431,7 +431,7 @@
       },
       {
         "amount": 64,
-        "special": true,
+        "special": false,
         "itemstack": {
           "registry_name": "minecraft:diamond",
           "damage": 0,
