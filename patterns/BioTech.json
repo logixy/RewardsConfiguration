@@ -125,7 +125,7 @@
       {
         "description": "Group Premium 2 days",
         "special": true,
-      	"icon": "vip.png",
+      	"icon": "Premium.png",
       	"tooltip": "Group: Premium\nExp: 2 days",
       	"commands": "/lp user @p parent addtemp premium 2d server=biotech",
         "weight": "h"
@@ -133,7 +133,7 @@
       {
         "description": "Group Platinum 2 days",
         "special": true,
-      	"icon": "vip.png",
+      	"icon": "Platinum.png",
       	"tooltip": "Group: Platinum\nExp: 2 days",
       	"commands": "/lp user @p parent addtemp platinum 2d server=biotech",
         "weight": "h"
