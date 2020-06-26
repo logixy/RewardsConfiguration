@@ -1,7 +1,10 @@
 let monthSelect = document.getElementById('monthSelect');
 monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
 
-let inputJsonTextArea = document.getElementById('inputJson');
+var patternSelect = document.getElementById('patternSelect');
+patternSelect.addEventListener("change", onSelectPatternChangedOption);
+
+var inputJson = document.getElementById('inputJson');
 
 let generateJsonButton = document.getElementById('generateJson');
 generateJsonButton.addEventListener("click", onGenerateJsonButtonClick);
@@ -16,6 +19,18 @@ const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 var rewardsConfig = [];
 outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
+
+// Init patterns list
+axios.get('patterns/patterns_list.json').then((res) => {
+  if(res.data.length != 0) {
+    res.data.forEach((pattern, i) => {
+      let option = document.createElement("option");
+      option.innerHTML = pattern;
+      patternSelect.appendChild(option);
+    });
+  }
+}).catch((error) => {showError(error)});
+// End Init patterns list
 
 function onGenerateJsonButtonClick() {
     try {
@@ -133,8 +148,22 @@ function copyJsonToClipboard() {
 function showError(error) {
     generationError.style.visibility = 'visible';
     console.error(error);
-};
+}
 
 function hideError() {
     generationError.style.visibility = 'hidden';
-};
+}
+
+/**
+ * Load pattern
+ */
+function onSelectPatternChangedOption() {
+  let patternName = patternSelect.options[patternSelect.selectedIndex].text;
+  if(patternSelect.selectedIndex == 0) {
+    inputJson.value = "";
+    return;
+  }
+  axios.get(`patterns/${patternName}.json`).then((res) => {
+    inputJson.value = JSON.stringify(res.data, null, 2);
+  }).catch((error) => {showError(error)})
+}
