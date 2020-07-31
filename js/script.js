@@ -1,10 +1,10 @@
 let monthSelect = document.getElementById('monthSelect');
 monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
 
-var patternSelect = document.getElementById('patternSelect');
+let patternSelect = document.getElementById('patternSelect');
 patternSelect.addEventListener("change", onSelectPatternChangedOption);
 
-var inputJson = document.getElementById('inputJson');
+let inputJson = document.getElementById('inputJson');
 
 let generateJsonButton = document.getElementById('generateJson');
 generateJsonButton.addEventListener("click", onGenerateJsonButtonClick);
@@ -13,11 +13,14 @@ let outputJson = document.getElementById('outputJson');
 
 let generationError = document.getElementById('generationError');
 
+let copiedComplete = document.getElementById('copiedComplete');
+copiedComplete.style.visibility = 'hidden';
+
 
 const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 
-var rewardsConfig = [];
+let rewardsConfig = [];
 outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
 
 // Init patterns list
@@ -55,7 +58,7 @@ function parseInputJson() {
         throw 'No types defined';
     }
 
-    var typeIndex;
+    let typeIndex;
     for (typeIndex = 0; typeIndex < rewardsList.length; typeIndex++) {
         if (!rewardsList[typeIndex].type) {
             throw "Missing 'type' property of type with index " + typeIndex;
@@ -97,15 +100,15 @@ function generateRewardsConfig(rewardsList, month) {
         rewards = rewards.concat(rewardsList[i].rewards);
     }
 
-    var filteredRewardsL = rewards.filter(
+    let filteredRewardsL = rewards.filter(
         reward => reward.weight === "l"
     );
 
-    var filteredRewardsLM = rewards.filter(
+    let filteredRewardsLM = rewards.filter(
         reward => (reward.weight === "l" || reward.weight === "m")
     );
 
-    var filteredRewardsMH = rewards.filter(
+    let filteredRewardsMH = rewards.filter(
         reward => (reward.weight === "m" || reward.weight === "h")
     );
 
@@ -142,6 +145,9 @@ function copyJsonToClipboard() {
     document.execCommand('copy');
     document.body.removeChild(input);
     delete input;
+
+    copiedComplete.style.visibility = 'visible';
+    setTimeout(() => {copiedComplete.style.visibility = 'hidden'}, 3000);
 }
 
 
