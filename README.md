@@ -1,14 +1,14 @@
-# RewardsConfiguration
+# Генератор конфигурации для ежедневных наград
 
-[logicworlds.github.io/RewardsConfiguration](https://logicworlds.github.io/RewardsConfiguration/)
+> [Программа](https://logicworlds.github.io/RewardsConfiguration) генерирует JSON со случайным списком наград для игровых серверов. На серверах используется система [Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards/).
 
-Генератор конфигурации для
-[Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards/).
+![https://github.com/LogicWorlds/RewardsConfiguration/blob/master/LICENSE](https://img.shields.io/github/license/LogicWorlds/RewardsConfiguration?color=0277bd&style=flat-square)
+![https://github.com/LogicWorlds/RewardsConfiguration/issues](https://img.shields.io/github/issues/LogicWorlds/RewardsConfiguration?color=0277bd&style=flat-square)
 
 ## Как использовать
 
 1. Выбрать месяц (по умолчанию - следующий)
-2. Вставить JSON со списками наград
+2. Вставить JSON со списками наград или выбрать шаблон из списка
 3. Нажать "Сделать JSON"
 4. Нажать "Копировать", чтобы поместить сгенерированную конфигурацию в буфер обмена
 
@@ -86,3 +86,7 @@
   }
 ]
 ```
+
+## Лицензия
+
+[GNU General Public License v3.0](https://github.com/LogicWorlds/RewardsConfiguration/blob/master/LICENSE)
