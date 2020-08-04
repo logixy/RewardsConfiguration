@@ -32,7 +32,7 @@ axios.get('patterns/patterns_list.json').then((res) => {
       patternSelect.appendChild(option);
     });
   }
-}).catch((error) => {showError(error)});
+}).catch((error) => {showError(error, "не удалось получить список серверов (patterns/patterns_list.json)")});
 // End Init patterns list
 
 function onGenerateJsonButtonClick() {
@@ -46,7 +46,7 @@ function onGenerateJsonButtonClick() {
 
         hideError();
     } catch (error) {
-        showError(error);
+        showError(error, "формат входных данных не соответствует шаблону, либо допущена ошибка. Подробнее - смотрите в консоли.");
     }
 
 };
@@ -151,8 +151,11 @@ function copyJsonToClipboard() {
 }
 
 
-function showError(error) {
+function showError(error, errorText = '') {
     generationError.style.visibility = 'visible';
+    generationError.innerHTML = "<b>Неизвестная ошибка!</b> Смотрите подробнее в консоли.";
+    if(errorText != '')
+      generationError.innerHTML = "<b>Ошибка!</b>: " + errorText;
     console.error(error);
 }
 
@@ -171,5 +174,5 @@ function onSelectPatternChangedOption() {
   }
   axios.get(`patterns/${patternName}.json`).then((res) => {
     inputJson.value = JSON.stringify(res.data, null, 2);
-  }).catch((error) => {showError(error)})
+  }).catch((error) => {showError(error, "не удалось загрузить шаблон "+`(patterns/${patternName}.json)`)})
 }
