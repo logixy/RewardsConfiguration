@@ -3,7 +3,6 @@
 > [Программа](https://logicworlds.github.io/RewardsConfiguration) генерирует JSON со случайным списком наград для игровых серверов. На серверах используется система [Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards/).
 
 [![license](https://img.shields.io/github/license/LogicWorlds/RewardsConfiguration?color=0277bd&style=flat-square)](https://github.com/LogicWorlds/RewardsConfiguration/blob/master/LICENSE)
-[![issues](https://img.shields.io/github/issues/LogicWorlds/RewardsConfiguration?color=0277bd&style=flat-square)](https://github.com/LogicWorlds/RewardsConfiguration/issues)
 
 ## Как использовать
 
@@ -11,8 +10,6 @@
 2. Вставить JSON со списками наград или выбрать шаблон из списка
 3. Нажать "Сделать JSON"
 4. Нажать "Копировать", чтобы поместить сгенерированную конфигурацию в буфер обмена
-
-Если пишет "Не могу", скорее всего, входной JSON содержит ошибку (см. лог браузера).
 
 ## Пример входного JSON
 
