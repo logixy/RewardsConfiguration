@@ -47,7 +47,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 300",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 300",
+      	"commands": "/acb @p 300",
         "weight": "l"
       },
       {
@@ -55,7 +55,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 150",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 150",
+      	"commands": "/acb @p 150",
         "weight": "l"
       },
       {
@@ -63,7 +63,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 190",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 190",
+      	"commands": "/acb @p 190",
         "weight": "l"
       },
       {
@@ -71,7 +71,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 500",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 500",
+      	"commands": "/acb @p 500",
         "weight": "m"
       },
       {
@@ -79,7 +79,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 550",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 550",
+      	"commands": "/acb @p 550",
         "weight": "m"
       },
       {
@@ -87,7 +87,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 600",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 600",
+      	"commands": "/acb @p 600",
         "weight": "m"
       },
       {
@@ -95,7 +95,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 700",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 700",
+      	"commands": "/acb @p 700",
         "weight": "h"
       },
       {
@@ -103,7 +103,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 900",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 900",
+      	"commands": "/acb @p 900",
         "weight": "h"
       },
       {
@@ -111,7 +111,7 @@
         "special": true,
       	"tooltip": "Count of claim blocks: 1000",
       	"icon": "claimblocks.png",
-      	"commands": "/adjustbonusclaimblocks @p 1000",
+      	"commands": "/acb @p 1000",
         "weight": "h"
       },
       {
