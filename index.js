@@ -23,7 +23,7 @@ const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 let rewardsConfig = [];
 outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
 
-// Init patterns list
+// Load the list of patterns
 axios.get('patterns/patterns_list.json').then((res) => {
   if(res.data.length != 0) {
     res.data.forEach((pattern, i) => {
@@ -32,8 +32,9 @@ axios.get('patterns/patterns_list.json').then((res) => {
       patternSelect.appendChild(option);
     });
   }
-}).catch((error) => {showError(error, "не удалось получить список серверов (patterns/patterns_list.json)")});
-// End Init patterns list
+}).catch((error) => {
+    showError(error, "Failed to load the list of patterns.")
+});
 
 function onGenerateJsonButtonClick() {
     try {
@@ -46,9 +47,8 @@ function onGenerateJsonButtonClick() {
 
         hideError();
     } catch (error) {
-        showError(error, "формат входных данных не соответствует шаблону, либо допущена ошибка. Подробнее - смотрите в консоли.");
+        showError(error, "Invalid JSON. See console for more info.");
     }
-
 };
 
 
@@ -153,9 +153,9 @@ function copyJsonToClipboard() {
 
 function showError(error, errorText = '') {
     generationError.style.visibility = 'visible';
-    generationError.innerHTML = "<b>Неизвестная ошибка!</b> Смотрите подробнее в консоли.";
+    generationError.innerHTML = "<b>Unknown error!</b> See console for details.";
     if(errorText != '')
-      generationError.innerHTML = "<b>Ошибка!</b>: " + errorText;
+      generationError.innerHTML = "<b>Error!</b> " + errorText;
     console.error(error);
 }
 
@@ -163,9 +163,6 @@ function hideError() {
     generationError.style.visibility = 'hidden';
 }
 
-/**
- * Load pattern
- */
 function onSelectPatternChangedOption() {
   let patternName = patternSelect.options[patternSelect.selectedIndex].text;
   if(patternSelect.selectedIndex == 0) {
@@ -174,5 +171,5 @@ function onSelectPatternChangedOption() {
   }
   axios.get(`patterns/${patternName}.json`).then((res) => {
     inputJson.value = JSON.stringify(res.data, null, 2);
-  }).catch((error) => {showError(error, "не удалось загрузить шаблон "+`(patterns/${patternName}.json)`)})
+  }).catch((error) => {showError(error, "Failed to load template "+`(patterns/${patternName}.json)`)})
 }
