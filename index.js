@@ -1,8 +1,8 @@
 let monthSelect = document.getElementById('monthSelect');
 monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
 
-let patternSelect = document.getElementById('patternSelect');
-patternSelect.addEventListener("change", onSelectPatternChangedOption);
+let templateSelect = document.getElementById('templateSelect');
+templateSelect.addEventListener("change", onSelectTemplateChangedOption);
 
 let inputJson = document.getElementById('inputJson');
 
@@ -16,25 +16,18 @@ let generationError = document.getElementById('generationError');
 let copiedComplete = document.getElementById('copiedComplete');
 copiedComplete.style.visibility = 'hidden';
 
-
 const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+const TEMPLATES = ["BioTech", "ClassicTech", "MagicRPG"]
 
 let rewardsConfig = [];
 outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
 
-// Load the list of patterns
-axios.get('patterns/patterns_list.json').then((res) => {
-  if(res.data.length != 0) {
-    res.data.forEach((pattern, i) => {
-      let option = document.createElement("option");
-      option.innerHTML = pattern;
-      patternSelect.appendChild(option);
-    });
-  }
-}).catch((error) => {
-    showError(error, "Failed to load the list of patterns.")
-});
+for (let i = 0; i < TEMPLATES.length; i++) {
+    let option = document.createElement("option");
+    option.innerHTML = TEMPLATES[i];
+    templateSelect.appendChild(option);
+}
 
 function onGenerateJsonButtonClick() {
     try {
@@ -163,13 +156,13 @@ function hideError() {
     generationError.style.visibility = 'hidden';
 }
 
-function onSelectPatternChangedOption() {
-  let patternName = patternSelect.options[patternSelect.selectedIndex].text;
-  if(patternSelect.selectedIndex == 0) {
+function onSelectTemplateChangedOption() {
+  let templateName = templateSelect.options[templateSelect.selectedIndex].text;
+  if(templateSelect.selectedIndex == 0) {
     inputJson.value = "";
     return;
   }
-  axios.get(`patterns/${patternName}.json`).then((res) => {
+  axios.get(`templates/${templateName}.json`).then((res) => {
     inputJson.value = JSON.stringify(res.data, null, 2);
-  }).catch((error) => {showError(error, "Failed to load template "+`(patterns/${patternName}.json)`)})
+  }).catch((error) => {showError(error, "Failed to load template "+`(templates/${templateName}.json)`)})
 }
