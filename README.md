@@ -1,89 +1,108 @@
-# Генератор конфигурации для ежедневных наград
+# Configuration generator for daily rewards
 
-> [Программа](https://logicworlds.github.io/RewardsConfiguration) генерирует JSON со случайным списком наград для игровых серверов. На серверах используется система [Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards/).
+> [This app](https://logicworlds.github.io/RewardsConfiguration) makes configs with random awards for our Minecraft servers. We use [Oxygen-Daily-Rewards](https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards/) system. Rewards are configured for each month and for every day through JSON configs.
 
 [![license](https://img.shields.io/github/license/LogicWorlds/RewardsConfiguration?color=0277bd&style=flat-square)](https://github.com/LogicWorlds/RewardsConfiguration/blob/master/LICENSE)
 
-## Как использовать
+## Usage
 
-1. Выбрать месяц (по умолчанию - следующий)
-2. Вставить JSON со списками наград или выбрать шаблон из списка
-3. Нажать "Сделать JSON"
-4. Нажать "Копировать", чтобы поместить сгенерированную конфигурацию в буфер обмена
+1. Choose month (next month is set by default)
+2. Insert a JSON with awards list.  You can choose an existing template and edit
+   it as you want.
+3. Press "Make" button. The resulting JSON should appear below the button.
+4. You can copy the resulting JSON with the "Copy" button and paste it to the
+   mod's config directory.
 
-## Пример входного JSON
+## Input JSON
+
+The input JSON must be an array with three objects, each containing this three
+properties:
+
+* *type*: *COMMAND*, *CURRENCY*, and *ITEM*
+* *description* (optional)
+* *rewards*: an array of possible rewards
+
+All rewards of the same type must have the same structure:
+
+**COMMAND**
+
+```json
+{
+  "description": "300 Claim blocks",
+  "special": true,
+  "tooltip": "Count of claim blocks: 300",
+  "icon": "claimblocks.png",
+  "commands": "/acb @p 300",
+  "weight": "l"
+}
+```
+
+**CURRENCY**
+
+```json
+{
+  "amount": 12,
+  "special": false,
+  "currency_index": 0,
+  "weight": "l"
+}
+```
+
+**ITEM**
+
+```json
+{
+  "amount": 64,
+  "special": false,
+  "itemstack": {
+    "registry_name": "ic2:itemscrapbox",
+    "damage": 0,
+    "itemstack_nbt": "",
+    "capabilities_nbt": ""
+  },
+  "weight": "h"
+}
+```
+
+See the
+[patterns](https://github.com/LogicWorlds/RewardsConfiguration/tree/master/patterns)
+directory for more examples.
+
+## Resulting JSON
+
+The resulting JSON will contain a random list of rewards chosen from the input
+JSON for the whole month.
+
+Example:
 
 ```json
 [
   {
+    "day": 1,
     "type": "COMMAND",
-    "description": "150 Logics",
-    "rewards": [
-      {
-        "special": true,
-        "tooltip": "Money: 100 Logics",
-        "icon": "money.png",
-        "commands": "/adminpay @p 100",
-        "weight": "l"
-      },
-      {
-        "special": true,
-        "tooltip": "Money: 150 Logics",
-        "icon": "money.png",
-        "commands": "/adminpay @p 150",
-        "weight": "m"
-      }
-    ]
+    "description": "150 Claim blocks",
+    "special": true,
+    "tooltip": "Count of claim blocks: 150",
+    "icon": "claimblocks.png",
+    "commands": "/acb @p 150"
   },
   {
-    "type": "CURRENCY",
-    "description": "oxygen_dailyrewards.description.currency",
-    "rewards": [
-      {
-        "amount": 30,
-        "special": false,
-        "currency_index": 0,
-        "weight": "h"
-      },
-      {
-        "amount": 10,
-        "special": false,
-        "currency_index": 0,
-        "weight": "m"
-      }
-    ]
-  },
-  {
+    "day": 2,
     "type": "ITEM",
     "description": "oxygen_dailyrewards.description.item",
-    "rewards": [
-      {
-        "amount": 5,
-        "special": false,
-        "itemstack": {
-          "registry_name": "ic2:te",
-          "damage": 8,
-          "itemstack_nbt": "",
-          "capabilities_nbt": ""
-        },
-        "weight": "m"
-      },
-      {
-        "amount": 15,
-        "special": true,
-        "itemstack": {
-          "registry_name": "ic2:te",
-          "damage": 8,
-          "itemstack_nbt": "",
-          "capabilities_nbt": ""
-        },
-        "weight": "l"
-      }
-    ]
-  }
-]
-```
+    "amount": 16,
+    "special": false,
+    "itemstack": {
+      "registry_name": "ic2:itemscrapbox",
+      "damage": 0,
+      "itemstack_nbt": "",
+      "capabilities_nbt": ""
+    }
+  },
 
-## Лицензия
+```
+...and so on for each day of month.
+
+## License
 
 [GNU General Public License v3.0](https://github.com/LogicWorlds/RewardsConfiguration/blob/master/LICENSE)
