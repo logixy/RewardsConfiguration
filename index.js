@@ -1,30 +1,23 @@
-let monthSelect = document.getElementById('monthSelect');
+const TEMPLATES = ["BioTech", "ClassicTech", "MagicRPG"];
+
+const monthSelect = document.getElementById('monthSelect');
+const templateSelect = document.getElementById('templateSelect');
+const inputJson = document.getElementById('inputJson');
+const generateJsonButton = document.getElementById('generateJson');
+const outputJson = document.getElementById('outputJson');
+const generationError = document.getElementById('generationError');
+const copiedComplete = document.getElementById('copiedComplete');
+
 monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
-
-let templateSelect = document.getElementById('templateSelect');
 templateSelect.addEventListener("change", onSelectTemplateChangedOption);
-
-let inputJson = document.getElementById('inputJson');
-
-let generateJsonButton = document.getElementById('generateJson');
 generateJsonButton.addEventListener("click", onGenerateJsonButtonClick);
-
-let outputJson = document.getElementById('outputJson');
-
-let generationError = document.getElementById('generationError');
-
-let copiedComplete = document.getElementById('copiedComplete');
 copiedComplete.style.visibility = 'hidden';
-
-const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-const TEMPLATES = ["BioTech", "ClassicTech", "MagicRPG"]
 
 let rewardsConfig = [];
 outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
 
 for (let i = 0; i < TEMPLATES.length; i++) {
-    let option = document.createElement("option");
+    const option = document.createElement("option");
     option.innerHTML = TEMPLATES[i];
     templateSelect.appendChild(option);
 }
@@ -47,20 +40,24 @@ function onGenerateJsonButtonClick() {
 
 function parseInputJson() {
     let rewardsList = Object.assign({}, JSON.parse(inputJson.value));
+
     if (rewardsList.length === 0) {
         throw 'No types defined';
     }
 
     let typeIndex;
+
     for (typeIndex = 0; typeIndex < rewardsList.length; typeIndex++) {
         if (!rewardsList[typeIndex].type) {
             throw "Missing 'type' property of type with index " + typeIndex;
         }
+
         if (!rewardsList[typeIndex].rewards) {
             throw "Missing 'rewards' property of type with index " + typeIndex;
         }
+
         if (rewardsList[typeIndex].rewards.length === 0) {
-            throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined'
+            throw 'No rewards of type ' + rewardsList[typeIndex].type + ' defined';
         }
     }
 
@@ -105,15 +102,17 @@ function generateRewardsConfig(rewardsList, month) {
         reward => (reward.weight === "m" || reward.weight === "h")
     );
 
+    const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
     for (i = 1; i <= DAYS[month]; i++) {
         let reward = {};
 
         if (i < 8) {
-            reward = getRandomItemFromArray(filteredRewardsL)
+            reward = getRandomItemFromArray(filteredRewardsL);
         } else if (i > 23) {
-            reward = getRandomItemFromArray(filteredRewardsMH)
+            reward = getRandomItemFromArray(filteredRewardsMH);
         } else {
-            reward = getRandomItemFromArray(filteredRewardsLM)
+            reward = getRandomItemFromArray(filteredRewardsLM);
         }
 
         reward = Object.assign({}, reward);
@@ -127,28 +126,37 @@ function getRandomItemFromArray(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-
 document.getElementById('copyJson').onclick = copyJsonToClipboard;
 
 function copyJsonToClipboard() {
     let input = document.createElement('textarea');
+
     document.body.appendChild(input);
+
     input.value = JSON.stringify(rewardsConfig, null, 2);
     input.select();
+
     document.execCommand('copy');
+
     document.body.removeChild(input);
+
     delete input;
 
     copiedComplete.style.visibility = 'visible';
-    setTimeout(() => {copiedComplete.style.visibility = 'hidden'}, 3000);
-}
 
+    setTimeout(() => {
+        copiedComplete.style.visibility = 'hidden'
+    }, 3000);
+}
 
 function showError(error, errorText = '') {
     generationError.style.visibility = 'visible';
     generationError.innerHTML = "<b>Unknown error!</b> See console for details.";
-    if(errorText != '')
-      generationError.innerHTML = "<b>Error!</b> " + errorText;
+
+    if (errorText != '') {
+        generationError.innerHTML = "<b>Error!</b> " + errorText;
+    }
+
     console.error(error);
 }
 
@@ -157,12 +165,16 @@ function hideError() {
 }
 
 function onSelectTemplateChangedOption() {
-  let templateName = templateSelect.options[templateSelect.selectedIndex].text;
-  if(templateSelect.selectedIndex == 0) {
-    inputJson.value = "";
-    return;
-  }
-  axios.get(`templates/${templateName}.json`).then((res) => {
-    inputJson.value = JSON.stringify(res.data, null, 2);
-  }).catch((error) => {showError(error, "Failed to load template "+`(templates/${templateName}.json)`)})
+    let templateName = templateSelect.options[templateSelect.selectedIndex].text;
+
+    if (templateSelect.selectedIndex == 0) {
+        inputJson.value = "";
+        return;
+    }
+
+    axios.get(`templates/${templateName}.json`).then((res) => {
+        inputJson.value = JSON.stringify(res.data, null, 2);
+    }).catch((error) => {
+        showError(error, "Failed to load template "+`(templates/${templateName}.json)`)
+    })
 }
