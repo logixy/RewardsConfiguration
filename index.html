@@ -49,15 +49,15 @@
           </div>
           <div class="row responsive-label">
             <div class="col-sm-12 col-md-2">
-              <label for="inputJson">Input JSON</label>
+              <label for="inputJsonTextArea">Input JSON</label>
             </div>
             <div class="col-sm-12 col-md">
-              <textarea id="inputJson" rows="20"></textarea>
+              <textarea id="inputJsonTextArea" rows="20"></textarea>
             </div>
           </div>
           <div class="row responsive-label">
             <div class="col-sm-12 col-md-2">
-              <label for="inputJson">Template</label>
+              <label for="templateSelect">Template</label>
             </div>
             <div class="col-sm-12 col-md">
               <select id="templateSelect">
@@ -67,10 +67,10 @@
           </div>
           <div class="row responsive-label">
             <div class="col-sm-12 col-md-2">
-              <input id="generateJson" type="button" value="Make"/>
+              <input id="makeButton" type="button" value="Make"/>
             </div>
             <div class="col-sm-12 col-md">
-              <p id="generationError">An error occured.  See console for more info.</p>
+              <p id="errorLabel">An error occured.  See console for more info.</p>
             </div>
           </div>
         </form>
@@ -84,12 +84,12 @@
         <h2>Output JSON</h2>
       </div>
       <div class="col-sm-12 col-md-2">
-        <input id="copyJson" type="button" value="Copy"/>
+        <input id="copyJsonButton" type="button" value="Copy"/>
       </div>
       <div class="col-sm-12 col-md">
-        <p id="copiedComplete">Copied to clipboard!</p>
+        <p id="copiedCompleteLabel">Copied to clipboard!</p>
       </div>
     </div>
-    <pre id="outputJson"></pre>
+    <pre id="outputJsonText"></pre>
   </section>
 </body>

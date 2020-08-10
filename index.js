@@ -1,45 +1,76 @@
-const TEMPLATES = ["BioTech", "ClassicTech", "MagicRPG"];
+const TEMPLATES = ['BioTech', 'ClassicTech', 'MagicRPG'];
 
+const copiedCompleteLabel = document.getElementById('copiedCompleteLabel');
+const copyJsonButton = document.getElementById('copyJsonButton')
+const errorLabel = document.getElementById('errorLabel');
+const inputJsonTextArea = document.getElementById('inputJsonTextArea');
+const makeButton = document.getElementById('makeButton');
 const monthSelect = document.getElementById('monthSelect');
+const outputJsonText = document.getElementById('outputJsonText');
 const templateSelect = document.getElementById('templateSelect');
-const inputJson = document.getElementById('inputJson');
-const generateJsonButton = document.getElementById('generateJson');
-const outputJson = document.getElementById('outputJson');
-const generationError = document.getElementById('generationError');
-const copiedComplete = document.getElementById('copiedComplete');
 
-monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
-templateSelect.addEventListener("change", onSelectTemplateChangedOption);
-generateJsonButton.addEventListener("click", onGenerateJsonButtonClick);
-copiedComplete.style.visibility = 'hidden';
+main();
 
-let rewardsConfig = [];
-outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
+function main() {
+    copiedCompleteLabel.style.visibility = 'hidden'
+    copyJsonButton.onclick = onCopyButtonClick;
+    makeButton.addEventListener('click', onMakeButtonClick);
+    monthSelect.selectedIndex = (new Date().getMonth() + 1) % 12;
+    templateSelect.addEventListener('change', onSelectTemplate);
 
-for (let i = 0; i < TEMPLATES.length; i++) {
-    const option = document.createElement("option");
-    option.innerHTML = TEMPLATES[i];
-    templateSelect.appendChild(option);
+    hideError()
+
+    let rewardsConfig = [];
+    showOutputJsonFromObject(rewardsConfig)
+
+    for (let i = 0; i < TEMPLATES.length; i++) {
+        const option = document.createElement('option');
+        option.innerHTML = TEMPLATES[i];
+        templateSelect.appendChild(option);
+    }
 }
 
-function onGenerateJsonButtonClick() {
+function onSelectTemplate() {
+    let templateName = templateSelect.options[templateSelect.selectedIndex].text;
+
+    if (templateSelect.selectedIndex === 0) {
+        inputJsonTextArea.value = '';
+    } else {
+        axios.get(`templates/${templateName}.json`).then((response) => {
+            inputJsonTextArea.value = JSON.stringify(response.data, null, 2);
+        }).catch((error) => {
+            showError(error, 'Failed to load template ' + `(templates/${templateName}.json)`)
+        })
+    }
+}
+
+function onMakeButtonClick() {
     try {
-        let rewardsList = parseInputJson();
+        let rewardsList = parseInputJson(inputJsonTextArea.value);
 
         let monthIndex = monthSelect.selectedIndex;
-        generateRewardsConfig(rewardsList, monthIndex);
+        let rewardsConfig = makeRewardsConfig(rewardsList, monthIndex);
 
-        outputJson.innerHTML = JSON.stringify(rewardsConfig, null, 2);
+        showOutputJsonFromObject(rewardsConfig)
 
         hideError();
     } catch (error) {
-        showError(error, "Invalid JSON. See console for more info.");
+        showError(error, 'Invalid JSON. See console for more info.');
     }
 };
 
+function onCopyButtonClick() {
+    copyTextToClipboard(outputJsonText.innerHTML)
 
-function parseInputJson() {
-    let rewardsList = Object.assign({}, JSON.parse(inputJson.value));
+    copiedCompleteLabel.style.visibility = 'visible';
+
+    setTimeout(() => {
+        copiedCompleteLabel.style.visibility = 'hidden'
+    }, 3000);
+}
+
+function parseInputJson(json = '') {
+    let rewardsList = Object.assign({}, JSON.parse(json));
 
     if (rewardsList.length === 0) {
         throw 'No types defined';
@@ -49,11 +80,11 @@ function parseInputJson() {
 
     for (typeIndex = 0; typeIndex < rewardsList.length; typeIndex++) {
         if (!rewardsList[typeIndex].type) {
-            throw "Missing 'type' property of type with index " + typeIndex;
+            throw 'Missing "type" property of type with index ' + typeIndex;
         }
 
         if (!rewardsList[typeIndex].rewards) {
-            throw "Missing 'rewards' property of type with index " + typeIndex;
+            throw 'Missing "rewards" property of type with index ' + typeIndex;
         }
 
         if (rewardsList[typeIndex].rewards.length === 0) {
@@ -64,8 +95,12 @@ function parseInputJson() {
     return rewardsList;
 }
 
-function generateRewardsConfig(rewardsList, month) {
-    rewardsConfig = [];
+function showOutputJsonFromObject(object = {}) {
+    outputJsonText.innerHTML = JSON.stringify(object, null, 2);
+}
+
+function makeRewardsConfig(rewardsList, month) {
+    let rewardsConfig = [];
 
     let typeIndex = 0;
 
@@ -91,15 +126,15 @@ function generateRewardsConfig(rewardsList, month) {
     }
 
     let filteredRewardsL = rewards.filter(
-        reward => reward.weight === "l"
+        reward => reward.weight === 'l'
     );
 
     let filteredRewardsLM = rewards.filter(
-        reward => (reward.weight === "l" || reward.weight === "m")
+        reward => (reward.weight === 'l' || reward.weight === 'm')
     );
 
     let filteredRewardsMH = rewards.filter(
-        reward => (reward.weight === "m" || reward.weight === "h")
+        reward => (reward.weight === 'm' || reward.weight === 'h')
     );
 
     const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -120,20 +155,20 @@ function generateRewardsConfig(rewardsList, month) {
         delete reward.weight;
         rewardsConfig.push(reward);
     }
+
+    return rewardsConfig
 }
 
 function getRandomItemFromArray(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-document.getElementById('copyJson').onclick = copyJsonToClipboard;
-
-function copyJsonToClipboard() {
+function copyTextToClipboard(text = '') {
     let input = document.createElement('textarea');
 
     document.body.appendChild(input);
 
-    input.value = JSON.stringify(rewardsConfig, null, 2);
+    input.value = text
     input.select();
 
     document.execCommand('copy');
@@ -141,40 +176,19 @@ function copyJsonToClipboard() {
     document.body.removeChild(input);
 
     delete input;
-
-    copiedComplete.style.visibility = 'visible';
-
-    setTimeout(() => {
-        copiedComplete.style.visibility = 'hidden'
-    }, 3000);
 }
 
 function showError(error, errorText = '') {
-    generationError.style.visibility = 'visible';
-    generationError.innerHTML = "<b>Unknown error!</b> See console for details.";
+    errorLabel.style.visibility = 'visible';
+    errorLabel.innerHTML = '<b>Unknown error!</b> See console for details.';
 
     if (errorText != '') {
-        generationError.innerHTML = "<b>Error!</b> " + errorText;
+        errorLabel.innerHTML = '<b>Error!</b> ' + errorText;
     }
 
     console.error(error);
 }
 
 function hideError() {
-    generationError.style.visibility = 'hidden';
-}
-
-function onSelectTemplateChangedOption() {
-    let templateName = templateSelect.options[templateSelect.selectedIndex].text;
-
-    if (templateSelect.selectedIndex == 0) {
-        inputJson.value = "";
-        return;
-    }
-
-    axios.get(`templates/${templateName}.json`).then((res) => {
-        inputJson.value = JSON.stringify(res.data, null, 2);
-    }).catch((error) => {
-        showError(error, "Failed to load template "+`(templates/${templateName}.json)`)
-    })
+    errorLabel.style.visibility = 'hidden';
 }
