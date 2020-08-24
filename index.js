@@ -8,6 +8,7 @@ const makeButton = document.getElementById('makeButton');
 const monthSelect = document.getElementById('monthSelect');
 const outputJsonText = document.getElementById('outputJsonText');
 const templateSelect = document.getElementById('templateSelect');
+const weightModeSelect = document.getElementById('weightModeSelect');
 
 main();
 
@@ -125,6 +126,9 @@ function makeRewardsConfig(rewardsList, month) {
         rewards = rewards.concat(rewardsList[i].rewards);
     }
 
+    // For more information on weights and weight mode see
+    // https://github.com/LogicWorlds/RewardsConfiguration#weight-mode
+
     let filteredRewardsL = rewards.filter(
         reward => reward.weight === 'l'
     );
@@ -133,8 +137,16 @@ function makeRewardsConfig(rewardsList, month) {
         reward => (reward.weight === 'l' || reward.weight === 'm')
     );
 
+    let filteredRewardsM = rewards.filter(
+        reward => reward.weight === 'm'
+    );
+
     let filteredRewardsMH = rewards.filter(
         reward => (reward.weight === 'm' || reward.weight === 'h')
+    );
+
+    let filteredRewardsH = rewards.filter(
+        reward => reward.weight === 'h'
     );
 
     const DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -145,9 +157,21 @@ function makeRewardsConfig(rewardsList, month) {
         if (i < 8) {
             reward = getRandomItemFromArray(filteredRewardsL);
         } else if (i > 23) {
-            reward = getRandomItemFromArray(filteredRewardsMH);
+            if (weightModeSelect.selectedIndex === 0) {
+                // strict mode
+                reward = getRandomItemFromArray(filteredRewardsH);
+            } else if (weightModeSelect.selectedIndex === 1) {
+                // mixed mode
+                reward = getRandomItemFromArray(filteredRewardsMH);
+            }
         } else {
-            reward = getRandomItemFromArray(filteredRewardsLM);
+            if (weightModeSelect.selectedIndex === 0) {
+                // strict mode
+                reward = getRandomItemFromArray(filteredRewardsM);
+            } else if (weightModeSelect.selectedIndex === 1) {
+                // mixed mode
+                reward = getRandomItemFromArray(filteredRewardsLM);
+            }
         }
 
         reward = Object.assign({}, reward);

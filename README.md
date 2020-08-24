@@ -103,6 +103,33 @@ Example:
 ```
 ...and so on for each day of month.
 
+## Weight Mode
+
+Each reward in input JSON should have a `weight` property.
+Possible values of this property are `l`, `m`, and `h`
+(low, medium and high respectively).
+The more valuable a reward is, the higher weight it should have.
+
+Weight mode defines how rewards with different weights appear in the resulting JSON.
+
+### Strict Mode
+
+From day 1 to day 7 the resulting JSON will contain only rewards with *low* weight.
+
+From day 8 to day 23 there will be rewards with *medium* weight.
+
+From day 24 to the last day of month only *high*-weighted rewards will appear.
+
+### Mixed Mode
+
+From day 1 to day 7 the resulting JSON will contain only rewards with *low* weight.
+
+From day 8 to day 23 the rewards with *low* or *medium* weight will be chosen.
+
+From day 24 to the last day of month the program randomly chooses the rewards with *medium* or *high* weight.
+
+This mode is useful for servers which don't have lots of rewards.
+
 ## License
 
 [GNU General Public License v3.0](https://github.com/LogicWorlds/RewardsConfiguration/blob/master/LICENSE)
