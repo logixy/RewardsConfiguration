@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -8,66 +7,82 @@
   <title>Logic Rewards</title>
 
   <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-dark.min.css"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="style.css"/>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="js/script.js" defer></script>
+  <script src="index.js" defer></script>
 </head>
 <body>
-  <h1>Ежедневные награды<small>Генерация конфигурации</small></h1>
+  <h1>Configuration generator for daily rewards</h1>
+
+  <p>This app makes configs with random awards for
+  <a href="https://github.com/AustereTony-MCMods/Oxygen-Daily-Rewards">
+    Oxygen-Daily-Rewards
+  </a>system.  See the
+  <a href="https://github.com/LogicWorlds/RewardsConfiguration">GitHub</a>
+  page for the information on how to use this.</p>
 
   <section class="container">
     <div class="row">
       <div class="col-sm-12">
         <form>
-          <fieldset>
-            <legend>Настроечки</legend>
-            <div class="row responsive-label">
-              <div class="col-sm-12 col-md-2">
-                <label for="monthSelect">Месяц</label>
-              </div>
-              <div class="col-sm-12 col-md">
-                <select id="monthSelect">
-                  <option>Январь</option>
-                  <option>Февраль</option>
-                  <option>Март</option>
-                  <option>Апрель</option>
-                  <option>Май</option>
-                  <option>Июнь</option>
-                  <option>Июль</option>
-                  <option>Август</option>
-                  <option>Сентябрь</option>
-                  <option>Октябрь</option>
-                  <option>Ноябрь</option>
-                  <option>Декабрь</option>
-                </select>
-              </div>
-            </div>
-            <div class="row responsive-label">
-              <div class="col-sm-12 col-md-2">
-                <label for="inputJson">Списки наград</label>
-              </div>
-              <div class="col-sm-12 col-md">
-                <textarea id="inputJson" rows="20"></textarea>
-              </div>
-            </div>
-            <div class="row responsive-label">
-              <div class="col-sm-12 col-md-2">
-                <label for="inputJson">Загрузить шаблон</label>
-              </div>
-              <div class="col-sm-12 col-md">
-                <select id="patternSelect">
-                  <option>Выберите из списка</option>
-                </select>
-              </div>
-            </div>
-          </fieldset>
           <div class="row responsive-label">
             <div class="col-sm-12 col-md-2">
-              <input id="generateJson" type="button" value="Сделать JSON"/>
+              <label for="monthSelect">Month</label>
             </div>
             <div class="col-sm-12 col-md">
-              <p id="generationError">Не могу :(</p>
+              <select id="monthSelect">
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </div>
+          </div>
+          <div class="row responsive-label">
+            <div class="col-sm-12 col-md-2">
+              <label for="inputJsonTextArea">Input JSON</label>
+            </div>
+            <div class="col-sm-12 col-md">
+              <textarea id="inputJsonTextArea" rows="20"></textarea>
+            </div>
+          </div>
+          <div class="row responsive-label">
+            <div class="col-sm-12 col-md-2">
+              <label for="templateSelect">Template</label>
+            </div>
+            <div class="col-sm-12 col-md">
+              <select id="templateSelect">
+                <option>Choose a template</option>
+              </select>
+            </div>
+          </div>
+          <div class="row responsive-label">
+            <div class="col-sm-12 col-md-2">
+              <label for="weightModeSelect">Weight Mode</label>
+            </div>
+            <div class="col-sm-12 col-md">
+              <select id="weightModeSelect">
+                <option>Strict</option>
+                <option>Mixed</option>
+              </select>
+              <a href="https://github.com/LogicWorlds/RewardsConfiguration#weight-mode">What is it?</a>
+            </div>
+          </div>
+          <div class="row responsive-label">
+            <div class="col-sm-12 col-md-2">
+              <input id="makeButton" type="button" value="Make"/>
+            </div>
+            <div class="col-sm-12 col-md">
+              <p id="errorLabel">An error occured.  See console for more info.</p>
             </div>
           </div>
         </form>
@@ -78,15 +93,15 @@
   <section class="container">
     <div class="row responsive-label">
       <div class="col-sm-12 col-md-2">
-        <h2>JSON`чик</h2>
+        <h2>Output JSON</h2>
       </div>
       <div class="col-sm-12 col-md-2">
-        <input id="copyJson" type="button" value="Копировать"/>
+        <input id="copyJsonButton" type="button" value="Copy"/>
       </div>
       <div class="col-sm-12 col-md">
-        <p id="copiedComplete">Скопировано!</p>
+        <p id="copiedCompleteLabel">Copied to clipboard!</p>
       </div>
     </div>
-    <pre id="outputJson"></pre>
+    <pre id="outputJsonText"></pre>
   </section>
 </body>
